@@ -1,0 +1,10 @@
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfClient.exe.config
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfClient.exe
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfClient.pdb
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfService.dll
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfService.pdb
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\HttpsUsernameAuthWcfService.dll.config
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.csprojResolveAssemblyReference.cache
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.csproj.CoreCompileInputs.cache
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.exe
+C:\Users\pedros\Desktop\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.pdb
