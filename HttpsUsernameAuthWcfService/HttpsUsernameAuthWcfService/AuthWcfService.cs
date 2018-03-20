@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HttpsUsernameAuthWcfService.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +13,11 @@ namespace HttpsUsernameAuthWcfService
     public interface IAuthWcfService
     {
         [OperationContract]
-        string SayHello(string name);
+        [WebInvoke(Method = "POST", UriTemplate = "/SayHello")]
+        string SayHello(CustomerContract customer);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/Hi/{firstname}")]
+        string Hi(string firstname);
     }
 }

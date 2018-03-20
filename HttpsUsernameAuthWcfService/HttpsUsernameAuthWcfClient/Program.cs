@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Runtime.Serialization.Json;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 
 using HttpsUsernameAuthWcfService;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace HttpsUsernameAuthWcfClient
 {
@@ -19,28 +23,20 @@ namespace HttpsUsernameAuthWcfClient
 
             try
             {
-                // endereço onde o .wcf está publicado
-                var endpointAddress = new EndpointAddress("https://notprdspo0002.l3.corp/AuthWcfService/AuthWcfService.svc/AuthWcfService");
+                var baseAddress = "https://notprdspo0002.l3.corp/AuthWcfService/AuthWcfService.svc";
 
-                var binding = new WSHttpBinding();
-                binding.Security.Mode = SecurityMode.TransportWithMessageCredential;
-                binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
-                binding.Security.Message.ClientCredentialType = MessageCredentialType.UserName;
+                var client = new WebClient();
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
 
-                channelFactory = new ChannelFactory<IAuthWcfService>(binding, endpointAddress);
+                client.UseDefaultCredentials = true;
+                client.Credentials = new NetworkCredential("username", "password");
 
-                // usuario e senha que serão validados pelo CustomValidator
-                channelFactory.Credentials.UserName.UserName = "username";
-                channelFactory.Credentials.UserName.Password = "password";
+                JObject data = new JObject();
+                data["firstname"] = "pedro";
+                data["lastname"] = "sabino";
 
-                var channel = channelFactory.CreateChannel();
-
-                Console.WriteLine("Calling SayHello operation...");
-
-                // chamada do método
-                string result = channel.SayHello("Pedro");
-
-                Console.WriteLine($"SayHello operation result: {result}");
+                var msg_sayhello = client.UploadString(baseAddress + "/SayHello", JsonConvert.SerializeObject(data));
             }
             catch (Exception ex)
             {
