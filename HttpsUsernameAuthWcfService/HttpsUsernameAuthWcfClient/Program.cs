@@ -22,8 +22,10 @@ namespace HttpsUsernameAuthWcfClient
                 // endereço onde o .wcf está publicado
                 var endpointAddress = new EndpointAddress("https://notprdspo0002.l3.corp/AuthWcfService/AuthWcfService.svc/AuthWcfService");
 
-                var binding = new BasicHttpBinding();
-                binding.Security.Mode = BasicHttpSecurityMode.TransportWithMessageCredential;
+                var binding = new WSHttpBinding();
+                binding.Security.Mode = SecurityMode.TransportWithMessageCredential;
+                binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
+                binding.Security.Message.ClientCredentialType = MessageCredentialType.UserName;
 
                 channelFactory = new ChannelFactory<IAuthWcfService>(binding, endpointAddress);
 
