@@ -26,10 +26,8 @@ namespace HttpsUsernameAuthWcfClient
 
                 var client = new WebClient();
                 client.Headers["Content-type"] = "application/json";
+                client.Headers["Authorization"] = GetAuthorizationHeaderValue("username", "password");
                 client.Encoding = Encoding.UTF8;
-
-                client.UseDefaultCredentials = true;
-                client.Credentials = new NetworkCredential("username", "password");
 
                 /*******************/
 
@@ -55,6 +53,14 @@ namespace HttpsUsernameAuthWcfClient
             }
         }
 
+        static string GetAuthorizationHeaderValue(string username, string password)
+        {
+            var cred = $"{username}:{password}";
+
+            var credBase64 = Convert.ToBase64String(System.Text.ASCIIEncoding.ASCII.GetBytes(cred));
+
+            return $"Basic {credBase64}";
+        }
     }
 
     class Customer
