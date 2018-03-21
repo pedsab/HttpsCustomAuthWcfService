@@ -18,5 +18,3 @@ C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUser
 C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.csproj.CoreCompileInputs.cache
 C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.exe
 C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\obj\Debug\HttpsUsernameAuthWcfClient.pdb
-C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\Newtonsoft.Json.dll
-C:\GitHub\pedsab\HttpsCustomAuthWcfService\HttpsUsernameAuthWcfService\HttpsUsernameAuthWcfClient\bin\Debug\Newtonsoft.Json.xml

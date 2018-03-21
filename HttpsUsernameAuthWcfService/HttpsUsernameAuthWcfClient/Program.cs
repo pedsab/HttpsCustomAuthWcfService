@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
@@ -7,10 +8,8 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Web.Script.Serialization;
 using HttpsUsernameAuthWcfService;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace HttpsUsernameAuthWcfClient
 {
@@ -32,11 +31,20 @@ namespace HttpsUsernameAuthWcfClient
                 client.UseDefaultCredentials = true;
                 client.Credentials = new NetworkCredential("username", "password");
 
-                JObject data = new JObject();
-                data["firstname"] = "pedro";
-                data["lastname"] = "sabino";
+                /*******************/
 
-                var msg_sayhello = client.UploadString(baseAddress + "/SayHello", JsonConvert.SerializeObject(data));
+                var customer = new Customer
+                {
+                    firstname = "pedro",
+                    lastname = "sabino"
+                };
+
+                var serializer = new JavaScriptSerializer();
+                var data = serializer.Serialize(customer);
+
+                var responseText = client.UploadString(baseAddress + "/SayHello", data);
+
+                var msg_sayhello = serializer.Deserialize<string>(responseText);
             }
             catch (Exception ex)
             {
@@ -46,5 +54,12 @@ namespace HttpsUsernameAuthWcfClient
                     channelFactory.Abort();
             }
         }
+
+    }
+
+    class Customer
+    {
+        public string firstname { get; set; }
+        public string lastname { get; set; }
     }
 }
